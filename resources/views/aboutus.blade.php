@@ -39,10 +39,6 @@
                 </div>
             </div>
         </div>
-
-        <hr class="border-light my-4">
-
-        <p class="text-muted mb-0">© 2025 Cultural Map Garut. Semua Hak Dilindungi.</p>
     </div>
 </div>
 

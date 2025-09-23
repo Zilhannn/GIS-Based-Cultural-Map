@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Ngalalana Dashboard')
+@section('title', 'Ngalalana - Dashboard')
 
 @section('content')
     <!-- Hero Section dengan background -->
@@ -39,17 +39,17 @@
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="card shadow h-100 bg-dark bg-opacity-75 border-0">
-                    <img src="{{ asset('assets/dodolan.jpeg') }}" class="card-img-top img-fluid" style="height:220px; object-fit:cover;" alt="Dodolan Dodol Garut">
+                    <img src="{{ asset('assets/dombagarut.jpg') }}" class="card-img-top img-fluid" style="height:220px; object-fit:cover;" alt="Dodolan Dodol Garut">
                     <div class="card-body text-light">
-                        <h5 class="card-title">Dodol Garut</h5>
-                        <p class="card-text">Oleh-oleh khas Garut yang sudah melegenda sejak puluhan tahun lalu.</p>
+                        <h5 class="card-title">Adu Domba</h5>
+                        <p class="card-text">Adu Domba Garut adalah seni ketangkasan yang mempertandingkan dua ekor domba jantan Garut dalam satu arena.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card shadow h-100 bg-dark bg-opacity-75 border-0">
-                    <img src="{{ asset('assets/batikgarut.jpg') }}" class="card-img-top img-fluid" style="height:220px; object-fit:cover;" alt="Batik Garut">
+                    <img src="{{ asset('assets/batikgarutan.jpg') }}" class="card-img-top img-fluid" style="height:220px; object-fit:cover;" alt="Batik Garut">
                     <div class="card-body text-light">
                         <h5 class="card-title">Batik Garutan</h5>
                         <p class="card-text">Motif batik khas Garut dengan corak elegan dan bernuansa alam Priangan.</p>
@@ -59,17 +59,17 @@
 
             <div class="col-md-4">
                 <div class="card shadow h-100 bg-dark bg-opacity-75 border-0">
-                    <img src="{{ asset('assets/angklungbuhun.jpg') }}" class="card-img-top img-fluid" style="height:220px; object-fit:cover;" alt="Angklung Buhun Garut">
+                    <img src="{{ asset('assets/candi-cangkuang.jpg') }}" class="card-img-top img-fluid" style="height:220px; object-fit:cover;" alt="Angklung Buhun Garut">
                     <div class="card-body text-light">
-                        <h5 class="card-title">Angklung Buhun</h5>
-                        <p class="card-text">Seni musik tradisional Garut yang masih dilestarikan oleh masyarakat lokal.</p>
+                        <h5 class="card-title">Candi Cangkuang</h5>
+                        <p class="card-text">
+                            Candi ini menjadi satu-satunya peninggalan bercorak Hindu di wilayah Garut dan salah satu yang tertua di Jawa Barat.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <hr class="border-light my-4">
-    <p style="color: white" align="center">© 2025 Cultural Map Garut.</p>
 </section>
 
 @endsection

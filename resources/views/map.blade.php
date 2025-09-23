@@ -9,12 +9,7 @@
         <h5 class="text-center text-light mb-4">
             Eksplorasi lokasi wisata budaya khas Garut dalam peta interaktif.
         </h5>
-
         <div id="map"></div>
-
-        {{-- Footer di dalam box --}}
-        <hr class="border-light my-4">
-        <p class="text-center text-light mb-0">© 2025 Cultural Map Garut.</p>
     </div>
 </div>
 
@@ -27,7 +22,6 @@
         <button class="btn btn-warning fw-bold mt-2" onclick="closeOverlay()">Tutup</button>
     </div>
 </div>
-
 @endsection
 
 @push('styles')
@@ -95,6 +89,11 @@
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
+        // Ambil parameter dari URL
+        let urlParams = new URLSearchParams(window.location.search);
+        let searchQuery = urlParams.get('q') ? urlParams.get('q').toLowerCase() : null;
+        let targetId = urlParams.get('cultural_id'); // ✅ parameter untuk popup marker
+
         // Load data GeoJSON dari QGIS export
         fetch("{{ asset('data/cultural_map.geojson') }}")
             .then(res => res.json())
@@ -114,6 +113,12 @@
                                 </div>
                             `;
                             layer.bindPopup(content);
+
+                            // ✅ Jika cultural_id cocok, langsung buka popup
+                            if (targetId && feature.properties.id == targetId) {
+                                map.setView(layer.getLatLng(), 15);
+                                setTimeout(() => layer.openPopup(), 500);
+                            }
                         }
                     },
                     pointToLayer: function(feature, latlng) {
@@ -127,9 +132,6 @@
                 }).addTo(map);
 
                 // 🔍 Fitur Pencarian
-                let urlParams = new URLSearchParams(window.location.search);
-                let searchQuery = urlParams.get('q') ? urlParams.get('q').toLowerCase() : null;
-
                 if (searchQuery) {
                     let found = null;
                     layerGroup.eachLayer(function(layer) {

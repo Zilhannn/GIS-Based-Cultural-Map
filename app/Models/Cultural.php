@@ -13,7 +13,18 @@ class Cultural extends Model
         'name',
         'category',
         'description',
+        'history',
+        'nowaday',
+        'cult_now',
         'location',
         'image',
     ];
+
+    /**
+     * Relasi: Satu cultural bisa punya banyak galeri
+     */
+    public function galleries()
+    {
+        return $this->hasMany(CulturalGallery::class);
+    }
 }

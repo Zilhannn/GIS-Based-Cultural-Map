@@ -1,160 +1,245 @@
 {
   "type": "FeatureCollection",
+  "name": "Wisata_Budaya_Garut",
   "features": [
-    {
+   {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "name": "Situs Candi Cangkuang",
+        "description": "Kategori: Situs Sejarah, Lokasi: Leles"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [107.9197293, -7.101037372]
+      }
+    },
+	{
       "type": "Feature",
       "properties": {
         "id": 2,
-        "name": "Kampung Adat Dukuh",
-        "description": "Didirikan oleh Syekh Abdul Jalil pada abad ke-17 di Garut Selatan. Masyarakatnya hidup sederhana tanpa listrik dan teknologi modern, dengan arsitektur rumah yang seragam dari bahan alami. Kampung ini terbagi menjadi Dukuh Dalam (lebih sakral) dan Dukuh Luar. Merupakan representasi resistensi budaya terhadap modernitas yang berlandaskan filosofi keagamaan."
+        "name": "Makam Baninuryayi",
+        "description": "Kategori: Makam Karomah, Lokasi: Karangpawitan"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [107.698889, -7.563889]
+        "coordinates": [107.9327155, -7.208155558]
       }
     },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": 3,
-        "name": "Makam Godog (Prabu Kian Santang)",
-        "description": "Makam Prabu Kian Santang (Sunan Rohmat Suci), putra Prabu Siliwangi dari Kerajaan Pajajaran yang memeluk Islam. Merupakan salah satu tujuan ziarah terpenting di Garut. Situs ini menjadi simpul yang menghubungkan era Kerajaan Hindu Pajajaran dengan era penyebaran Islam di Tatar Sunda."
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [107.957222, -7.252306]
-      }
-    },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 4,
-        "name": "Makam Sunan Pancer (Cipancar)",
-        "description": "Makam Prabu Wijaya Kusumah (Sunan Pancer), cucu Prabu Siliwangi, yang terletak di Limbangan, cikal bakal Kabupaten Garut. Situs ini menandai 'pintu gerbang' dan pusat penyebaran Islam awal di wilayah Garut, yang difasilitasi melalui konversi elite penguasa lokal."
+        "name": "Makam Godog",
+        "description": "Kategori: Makam Karomah, Lokasi: Karangpawitan"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [108.05, -7.098]
+        "coordinates": [107.955583, -7.25160356]
       }
     },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 5,
-        "name": "Makam Syekh Jafar Shidik",
-        "description": "Makam ulama besar abad ke-18 yang juga dikenal sebagai Sunan Haruman atau Embah Wali Cibiuk. Beliau adalah keturunan Sunan Pancer dan meninggalkan warisan budaya populer seperti Sambel Cibiuk. Situs ini merepresentasikan fase konsolidasi dan pelembagaan Islam ke dalam kehidupan sehari-hari masyarakat."
+        "name": "Makam Sunan Dalem Cipancar",
+        "description": "Kategori: Makam Karomah, Lokasi: Balubur Limbangan"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [107.921389, -7.108889]
+        "coordinates": [107.9844451, -7.027094889]
       }
     },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 6,
-        "name": "Makam Pangeran Papak",
-        "description": "Makam Raden Wangsa Muhammad di Wanaraja, seorang ulama keturunan Prabu Siliwangi dari abad ke-18. Dijuluki 'Papak' (sejajar) karena sikapnya yang egaliter dan tidak membedakan status sosial. Di dekatnya terdapat sumber mata air keramat 'Cimuara Pancuran Tujuh'."
+        "name": "Makam Sunan Remenggong",
+        "description": "Kategori: Makam Karomah, Lokasi: Limbangan"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [108.0, -7.15]
+        "coordinates": [107.9679077, -6.994287915]
       }
     },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 7,
-        "name": "Makam Raja Gordah",
-        "description": "Makam Dalem Anggadireja II atau Raja Gordah di Tarogong Kidul. Meskipun sejarahnya lebih terkait dengan Bandung, makamnya di Garut menjadi tujuan ziarah penting, terutama bagi para pejabat dan tokoh masyarakat."
+        "name": "Makam Dalem Arief Muhammad",
+        "description": "Kategori: Makam Karomah, Lokasi: Leles"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [107.883333, -7.216667]
+        "coordinates": [107.9189, -7.1029]
       }
     },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 8,
-        "name": "Tugu Simpang Lima",
-        "description": "Monumen ikonik di gerbang kota Garut yang dibangun pada awal 1990-an. Memiliki lima patung yang melambangkan lima unsur pejuang kemerdekaan: ulama, TNI, pemuda, laskar rakyat, dan kaum perempuan. Merupakan simbol reklamasi narasi pasca-kolonial dan perjuangan kolektif rakyat Garut."
+        "name": "Makam Syech Fatah Rohmatulloh",
+        "description": "Kategori: Makam Karomah, Lokasi: Samarang"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [107.9, -7.208333]
+        "coordinates": [107.8222057, -7.187166913]
       }
     },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 9,
-        "name": "Babancong",
-        "description": "Bangunan panggung segi delapan di depan Pendopo Garut, bagian dari kompleks alun-alun era kolonial. Berfungsi sebagai podium pidato resmi, termasuk oleh Presiden Soekarno pada tahun 1960-an. Merupakan simbol arsitektur kekuasaan kolonial."
+        "name": "Makam Sunan Papak",
+        "description": "Kategori: Makam Karomah, Lokasi: Wanaraja"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [107.905, -7.216111]
+        "coordinates": [107.9663304, -7.17277005]
       }
     },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 10,
-        "name": "Pendopo Garut",
-        "description": "Aula resmi pemerintahan Kabupaten Garut yang dibangun pada era kolonial (1813). Bangunan bergaya Eropa ini menjadi pusat administrasi dan tempat pertemuan penting. Merupakan bagian inti dari tata ruang kekuasaan kolonial di pusat kota Garut."
+        "name": "Makam Kuno Gunung Nagara",
+        "description": "Kategori: Makam Karomah, Lokasi: Cisompet"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [107.905278, -7.216389]
+        "coordinates": [107.7561207, -7.596472993]
       }
     },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 11,
-        "name": "Masjid Agung Garut",
-        "description": "Masjid utama Kabupaten Garut yang didirikan pada tahun 1813 bersamaan dengan Pendopo dan Alun-alun. Menjadi pusat kegiatan keagamaan Islam dan simbol kekuatan spiritual tradisional yang ditempatkan berhadapan dengan pusat kekuasaan administratif kolonial."
+        "name": "Situs Cimareme",
+        "description": "Kategori: Situs Sejarah, Lokasi: Banyuresmi"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [107.900889, -7.216139]
+        "coordinates": [107.9494477, -7.121384778]
       }
     },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 12,
-        "name": "Tugu Atam",
-        "description": "Monumen di Leuwigoong untuk mengenang pahlawan bernama Atam dan pertempuran melawan tentara Belanda pada 3 September 1947 selama Agresi Militer Belanda I. Monumen ini menjadi penanda peristiwa heroik spesifik dalam perjuangan kemerdekaan di Garut."
+        "name": "Masjid Asy-Syuro Cipari",
+        "description": "Kategori: Situs Sejarah, Lokasi: Pangatikan"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [107.983333, -7.133333]
+        "coordinates": [107.997918, -7.153199476]
       }
     },
-    {
+	{
       "type": "Feature",
       "properties": {
         "id": 13,
-        "name": "Graha Liman Kencana (Kampung Bali)",
-        "description": "Kawasan wisata budaya dan museum pribadi di Cibatu yang didirikan oleh seorang kolektor keturunan Keraton Solo. Menyimpan ribuan pusaka dari seluruh Nusantara dengan arsitektur bernuansa Bali. Merupakan simpul budaya 'Pan-Nusantara' yang berlokasi di tanah Sunda."
+        "name": "Situs Kabuyutan Ciburuy",
+        "description": "Kategori: Situs Sejarah, Lokasi: Bayongbong"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [108.066667, -7.133333]
+        "coordinates": [107.8236927, -7.294738151]
       }
     },
     {
       "type": "Feature",
       "properties": {
         "id": 14,
-        "name": "Cagar Alam Leuweung Sancang",
-        "description": "Cagar alam di pesisir selatan Garut yang memiliki nilai ekologis dan spiritual yang tinggi. Diyakini sebagai tempat 'moksa' Prabu Siliwangi. Merupakan contoh 'lanskap budaya' di mana mitologi dan konservasi alam saling terkait erat."
+        "name": "Kampung Bali",
+        "description": "Kategori: Kampung Adat atau Tradisional, Lokasi: Cibatu"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [107.9, -7.7]
+        "coordinates": [107.9799476, -7.084249858]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 15,
+        "name": "Kampung Dukuh",
+        "description": "Kategori: Kampung Adat atau Tradisional, Lokasi: Cikelet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [107.6977867, -7.562152226]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 16,
+        "name": "Kampung Pulo",
+        "description": "Kategori: Kampung Adat atau Tradisional, Lokasi: Leles"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [107.9180575, -7.103260844]
+      }
+    },
+	{
+      "type": "Feature",
+      "properties": {
+        "id": 17,
+        "name": "Museum Cangkuang",
+        "description": "Kategori: Museum, Lokasi: Leles"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [107.91886, -7.10288]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 18,
+        "name": "Museum R.A.A. Adiwidjaja",
+        "description": "Kategori: Museum, Lokasi: Tarogong Kidul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [107.8856454, -7.201505013]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 19,
+        "name": "Museum Graha Liman Kencana",
+        "description": "Kategori: Museum, Lokasi: Cibatu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [107.9799476, -7.084227899]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 20,
+        "name": "Museum Cinunuk",
+        "description": "Kategori: Museum, Lokasi: Wanaraja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [107.9689, -7.1752611]
+      }
+    },
+	{
+      "type": "Feature",
+      "properties": {
+        "id": 21,
+        "name": "Stasiun Kereta Api Cibatu",
+        "description": "Kategori: Warisan kolonial, Lokasi: Cibatu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [107.9794609, -7.100099606]
       }
     }
   ]

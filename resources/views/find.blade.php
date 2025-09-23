@@ -96,8 +96,6 @@
             <button type="submit" class="btn btn-warning text-dark fw-bold mt-3">Cari Sekarang!</button>
         </form>
         <p>Contoh: <em>Candi Cangkuang, Kampung Pulo, Dodol</em></p>
-        <hr class="border-light my-4">
-        <p style="color: white" align="center">© 2025 Cultural Map Garut.</p>
     </div>
 </div>
 @endsection

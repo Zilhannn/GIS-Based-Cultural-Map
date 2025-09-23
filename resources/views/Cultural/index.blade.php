@@ -20,7 +20,7 @@
                     data-bs-target="#alphabetFilter" 
                     aria-expanded="false" 
                     aria-controls="alphabetFilter">
-                ☰ Urut Berdasarkan Abjad
+                ☰ Tampilkan Berdasarkan Abjad
             </button>
         </div>
 
@@ -74,9 +74,6 @@
                     <div class="card-img-overlay d-flex flex-column justify-content-end" 
                          style="background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));">
                         <h5 class="card-title fw-bold text-warning">{{ $cultural->name }}</h5>
-                        <p class="card-text text-light mb-2">
-                            {{ Str::limit($cultural->description, 80) }}
-                        </p>
                         <small class="text-light">
                             <i class="bi bi-geo-alt-fill"></i> {{ $cultural->location }}
                         </small>
@@ -94,8 +91,10 @@
         @endforelse
     </div>
 
-    <hr class="border-light my-4">
-    <p style="color: white" align="center">© 2025 Cultural Map Garut.</p>
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center mt-4">
+        {{ $culturals->links('pagination::bootstrap-5') }}
+    </div>
 </div>
 @endsection
 
@@ -128,6 +127,22 @@
     .custom-dropdown option {
         background-color: #333;
         color: #fff;
+    }
+
+    /* Pagination style */
+    .pagination .page-link {
+        background-color: #222;
+        color: #ffc107;
+        border: 1px solid #ffc107;
+    }
+    .pagination .page-link:hover {
+        background-color: #ffc107;
+        color: #000;
+    }
+    .pagination .active .page-link {
+        background-color: #ffc107 !important;
+        border-color: #ffc107 !important;
+        color: #000 !important;
     }
 </style>
 @endpush
