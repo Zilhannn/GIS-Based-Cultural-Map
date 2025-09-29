@@ -2,144 +2,180 @@
   "type": "FeatureCollection",
   "name": "Wisata_Budaya_Garut",
   "features": [
-   {
+    {
       "type": "Feature",
       "properties": {
         "id": 1,
-        "name": "Situs Candi Cangkuang",
-        "description": "Kategori: Situs Sejarah, Lokasi: Leles"
+        "name": "Candi Cangkuang",
+        "description": "Situs bercorak Hindu di Desa Cangkuang, Leles. Terletak di tengah Situ Cangkuang, menjadi ikon sejarah dan wisata religi.",
+        "category": "Bangunan Bersejarah",
+        "location": "Desa Cangkuang, Kecamatan Leles, Garut",
+        "image": "candi-cangkuang.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.9197293, -7.101037372]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 2,
-        "name": "Makam Baninuryayi",
-        "description": "Kategori: Makam Karomah, Lokasi: Karangpawitan"
+        "name": "Makam Bayinuryayi",
+        "description": "Makam ulama yang dihormati, berada di pedesaan Karangpawitan. Tempat ziarah dengan suasana tenang.",
+        "category": "Bangunan Bersejarah",
+        "location": "Desa Karangmulya, Kecamatan Karangpawitan, Garut",
+        "image": "makamnuryayi.jpeg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.9327155, -7.208155558]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 4,
-        "name": "Makam Godog",
-        "description": "Kategori: Makam Karomah, Lokasi: Karangpawitan"
+        "name": "Makam Keramat Godog",
+        "description": "Kompleks makam Prabu Kiansantang di Godog, Karangpawitan. Menjadi pusat ziarah dan haul Maulid.",
+        "category": "Bangunan Bersejarah",
+        "location": "Desa Godog, Kecamatan Karangpawitan, Garut",
+        "image": "makamgodog.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.955583, -7.25160356]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 5,
-        "name": "Makam Sunan Dalem Cipancar",
-        "description": "Kategori: Makam Karomah, Lokasi: Balubur Limbangan"
+        "name": "Makam Sunan Cipancar",
+        "description": "Makam wali penyebar Islam di Balubur Limbangan, berada di perbukitan sejuk dan ramai diziarahi.",
+        "category": "Bangunan Bersejarah",
+        "location": "Kecamatan Balubur Limbangan, Garut",
+        "image": "makamcipancar.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.9844451, -7.027094889]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 6,
         "name": "Makam Sunan Remenggong",
-        "description": "Kategori: Makam Karomah, Lokasi: Limbangan"
+        "description": "Makam keramat tokoh penyebar Islam di Limbangan. Suasananya sederhana dan masih ramai diziarahi.",
+        "category": "Bangunan Bersejarah",
+        "location": "Kecamatan Limbangan, Garut",
+        "image": "makamremenggong.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.9679077, -6.994287915]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 7,
         "name": "Makam Dalem Arief Muhammad",
-        "description": "Kategori: Makam Karomah, Lokasi: Leles"
+        "description": "Makam tokoh penyebar Islam di Garut. Masih ramai diziarahi pada hari besar Islam.",
+        "category": "Bangunan Bersejarah",
+        "location": "Desa Cangkuang, Kecamatan Leles, Garut",
+        "image": "makamarief.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.9189, -7.1029]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 8,
         "name": "Makam Syech Fatah Rohmatulloh",
-        "description": "Kategori: Makam Karomah, Lokasi: Samarang"
+        "description": "Makam ulama penyebar Islam di Samarang. Terawat dan sering jadi tujuan ziarah.",
+        "category": "Bangunan Bersejarah",
+        "location": "Kecamatan Samarang, Garut",
+        "image": "makamfatah.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.8222057, -7.187166913]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 9,
         "name": "Makam Sunan Papak",
-        "description": "Kategori: Makam Karomah, Lokasi: Wanaraja"
+        "description": "Makam tokoh Islam di Cinunuk, Wanaraja. Dihormati masyarakat dan jadi tempat doa bersama.",
+        "category": "Bangunan Bersejarah",
+        "location": "Desa Cinunuk, Kecamatan Wanaraja, Garut",
+        "image": "makampapak.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.9663304, -7.17277005]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 10,
         "name": "Makam Kuno Gunung Nagara",
-        "description": "Kategori: Makam Karomah, Lokasi: Cisompet"
+        "description": "Kompleks makam kuno di Cisompet, bernilai sejarah tinggi dan dijaga sebagai cagar budaya.",
+        "category": "Bangunan Bersejarah",
+        "location": "Kecamatan Cisompet, Garut",
+        "image": "makamnagara.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.7561207, -7.596472993]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 11,
         "name": "Situs Cimareme",
-        "description": "Kategori: Situs Sejarah, Lokasi: Banyuresmi"
+        "description": "Situs megalitik di Banyuresmi. Menjadi bukti peradaban Sunda kuno dan masih dijaga kelestariannya.",
+        "category": "Bangunan Bersejarah",
+        "location": "Kecamatan Banyuresmi, Garut",
+        "image": "situscimareme.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.9494477, -7.121384778]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 12,
         "name": "Masjid Asy-Syuro Cipari",
-        "description": "Kategori: Situs Sejarah, Lokasi: Pangatikan"
+        "description": "Masjid bersejarah di Desa Cipari, Pangantikan. Arsitektur tradisional dengan nilai religius tinggi.",
+        "category": "Bangunan Bersejarah",
+        "location": "Desa Cipari, Kecamatan Pangantikan, Garut",
+        "image": "masjidsyuro.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.997918, -7.153199476]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 13,
         "name": "Situs Kabuyutan Ciburuy",
-        "description": "Kategori: Situs Sejarah, Lokasi: Bayongbong"
+        "description": "Situs naskah kuno Sunda di Bayongbong. Menjadi pusat literasi budaya dan tempat sakral.",
+        "category": "Bangunan Bersejarah, Wisata Budaya",
+        "location": "Desa Ciburuy, Kecamatan Bayongbong, Garut",
+        "image": "situsciburuy.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -151,7 +187,10 @@
       "properties": {
         "id": 14,
         "name": "Kampung Bali",
-        "description": "Kategori: Kampung Adat atau Tradisional, Lokasi: Cibatu"
+        "description": "Kampung adat di Cibatu dengan nuansa pedesaan asri, terkenal akan tradisi Sunda.",
+        "category": "Wisata Budaya",
+        "location": "Desa Cibunar, Kecamatan Cibatu, Garut",
+        "image": "kampungbali.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -163,7 +202,10 @@
       "properties": {
         "id": 15,
         "name": "Kampung Dukuh",
-        "description": "Kategori: Kampung Adat atau Tradisional, Lokasi: Cikelet"
+        "description": "Kampung adat di pedalaman Cikelet. Warganya masih menjaga tradisi leluhur Sunda.",
+        "category": "Wisata Budaya",
+        "location": "Kecamatan Cikelet, Garut",
+        "image": "kampungdukuh.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -175,19 +217,25 @@
       "properties": {
         "id": 16,
         "name": "Kampung Pulo",
-        "description": "Kategori: Kampung Adat atau Tradisional, Lokasi: Leles"
+        "description": "Kampung adat di tengah Situ Cangkuang, terdiri dari enam rumah tradisional yang tetap lestari.",
+        "category": "Wisata Budaya",
+        "location": "Kecamatan Leles, Garut",
+        "image": "kampungpulo.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.9180575, -7.103260844]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 17,
         "name": "Museum Cangkuang",
-        "description": "Kategori: Museum, Lokasi: Leles"
+        "description": "Museum di kompleks Candi Cangkuang yang menyimpan artefak sejarah Hindu–Islam.",
+        "category": "Museum",
+        "location": "Desa Cangkuang, Kecamatan Leles, Garut",
+        "image": "museumcangkuang.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -199,7 +247,10 @@
       "properties": {
         "id": 18,
         "name": "Museum R.A.A. Adiwidjaja",
-        "description": "Kategori: Museum, Lokasi: Tarogong Kidul"
+        "description": "Museum di bekas rumah dinas bupati Garut pertama. Menyimpan koleksi sejarah kolonial.",
+        "category": "Museum",
+        "location": "Desa Jayaraga, Kecamatan Tarogong Kidul, Garut",
+        "image": "museumadiwijaya.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -211,7 +262,10 @@
       "properties": {
         "id": 19,
         "name": "Museum Graha Liman Kencana",
-        "description": "Kategori: Museum, Lokasi: Cibatu"
+        "description": "Museum di Cibatu dengan koleksi kereta kuda, senjata tradisional, dan perabot antik.",
+        "category": "Museum",
+        "location": "Desa Cibunar, Kecamatan Cibatu, Garut",
+        "image": "museumkencana.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -223,19 +277,25 @@
       "properties": {
         "id": 20,
         "name": "Museum Cinunuk",
-        "description": "Kategori: Museum, Lokasi: Wanaraja"
+        "description": "Museum di Wanaraja, menyimpan peninggalan sejarah Islam dan budaya Sunda.",
+        "category": "Museum",
+        "location": "Desa Cinunuk, Kecamatan Wanaraja, Garut",
+        "image": "museumcinunuk.jpg"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [107.9689, -7.1752611]
       }
     },
-	{
+    {
       "type": "Feature",
       "properties": {
         "id": 21,
         "name": "Stasiun Kereta Api Cibatu",
-        "description": "Kategori: Warisan kolonial, Lokasi: Cibatu"
+        "description": "Stasiun peninggalan kolonial Belanda tahun 1889. Kini aktif kembali dan jadi ikon sejarah.",
+        "category": "Bangunan Bersejarah",
+        "location": "Kecamatan Cibatu, Garut",
+        "image": "stasiuncibatu.jpg"
       },
       "geometry": {
         "type": "Point",

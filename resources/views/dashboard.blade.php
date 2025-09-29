@@ -22,56 +22,40 @@
     </section>
 
     <!-- Informasi tambahan -->
-<!-- Informasi tambahan -->
-<section class="py-5 position-relative" 
-         style="background: url('{{ asset('images/babancong.jpg') }}') no-repeat center center/cover;">
+    <section class="py-5 position-relative" 
+             style="background: url('{{ asset('images/babancong.jpg') }}') no-repeat center center/cover;">
 
-    <!-- Overlay gelap biar teks lebih terbaca -->
-    <div class="overlay position-absolute top-0 start-0 w-100 h-100" 
-         style="background: rgba(0,0,0,0.6);"></div>
+        <!-- Overlay gelap biar teks lebih terbaca -->
+        <div class="overlay position-absolute top-0 start-0 w-100 h-100" 
+             style="background: rgba(0,0,0,0.6);"></div>
 
-    <div class="container position-relative text-light">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold text-warning">Budaya Khas Garut</h2>
-            <p class="text-light">Beberapa kekayaan budaya Garut yang patut kamu ketahui</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card shadow h-100 bg-dark bg-opacity-75 border-0">
-                    <img src="{{ asset('assets/dombagarut.jpg') }}" class="card-img-top img-fluid" style="height:220px; object-fit:cover;" alt="Dodolan Dodol Garut">
-                    <div class="card-body text-light">
-                        <h5 class="card-title">Adu Domba</h5>
-                        <p class="card-text">Adu Domba Garut adalah seni ketangkasan yang mempertandingkan dua ekor domba jantan Garut dalam satu arena.</p>
-                    </div>
-                </div>
+        <div class="container position-relative text-light">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-warning">Budaya Khas Garut</h2>
+                <p class="text-light">Beberapa kekayaan budaya Garut yang patut kamu ketahui</p>
             </div>
-
-            <div class="col-md-4">
-                <div class="card shadow h-100 bg-dark bg-opacity-75 border-0">
-                    <img src="{{ asset('assets/batikgarutan.jpg') }}" class="card-img-top img-fluid" style="height:220px; object-fit:cover;" alt="Batik Garut">
-                    <div class="card-body text-light">
-                        <h5 class="card-title">Batik Garutan</h5>
-                        <p class="card-text">Motif batik khas Garut dengan corak elegan dan bernuansa alam Priangan.</p>
+            
+            <div class="row g-4">
+                @foreach($culturals as $cultural)
+                    <div class="col-md-4">
+                        <div class="card shadow h-100 bg-dark bg-opacity-75 border-0">
+                            <img src="{{ asset('assets/'.$cultural->image) }}" 
+                                 class="card-img-top img-fluid" 
+                                 style="height:220px; object-fit:cover;" 
+                                 alt="{{ $cultural->name }}">
+                            <div class="card-body text-light">
+                               <h5 class="card-title">
+                                    <a href="{{ route('cultural.show', $cultural->id) }}" class="text-warning text-decoration-none">{{ $cultural->name }}
+                                    </a>
+                                </h5>
+                                <p class="card-text">{{ Str::limit($cultural->description, 120) }}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow h-100 bg-dark bg-opacity-75 border-0">
-                    <img src="{{ asset('assets/candi-cangkuang.jpg') }}" class="card-img-top img-fluid" style="height:220px; object-fit:cover;" alt="Angklung Buhun Garut">
-                    <div class="card-body text-light">
-                        <h5 class="card-title">Candi Cangkuang</h5>
-                        <p class="card-text">
-                            Candi ini menjadi satu-satunya peninggalan bercorak Hindu di wilayah Garut dan salah satu yang tertua di Jawa Barat.
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 @endsection
 
 @push('styles')

@@ -65,6 +65,16 @@
         max-width: 350px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.6);
     }
+
+    .btn-map {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .btn-map img {
+        width: 16px;
+        height: 16px;
+    }
 </style>
 @endpush
 
@@ -92,29 +102,57 @@
         // Ambil parameter dari URL
         let urlParams = new URLSearchParams(window.location.search);
         let searchQuery = urlParams.get('q') ? urlParams.get('q').toLowerCase() : null;
-        let targetId = urlParams.get('cultural_id'); // ✅ parameter untuk popup marker
+        let targetId = urlParams.get('cultural_id'); // parameter untuk popup marker
 
-        // Load data GeoJSON dari QGIS export
+        // Load data GeoJSON
         fetch("{{ asset('data/cultural_map.geojson') }}")
             .then(res => res.json())
             .then(data => {
                 let layerGroup = L.geoJSON(data, {
                     onEachFeature: function (feature, layer) {
                         if (feature.properties) {
+                            let name = feature.properties.name ?? "Lokasi Budaya";
+                            let description = feature.properties.description ?? "Informasi belum tersedia.";
+                            let category = feature.properties.category ?? "Kategori tidak tersedia";
+                            let location = feature.properties.location ?? "Lokasi tidak tersedia";
+                            let image = feature.properties.image 
+                                ? `/storage/${feature.properties.image}` 
+                                : "https://via.placeholder.com/240x150?text=No+Image";
+
+                            // Ambil koordinat untuk Google Maps
+                            let coords = feature.geometry.coordinates;
+                            let lat = coords[1];
+                            let lng = coords[0];
+
                             let content = `
-                                <div style="min-width:200px;">
-                                    <h6 class="fw-bold text-primary">${feature.properties.name ?? "Lokasi Budaya"}</h6>
-                                    <p style="font-size: 14px; color:#555;">
-                                        ${feature.properties.description ?? "Informasi singkat tentang lokasi budaya ini."}
+                                <div style="min-width:240px;">
+                                    <h6 class="fw-bold text-primary mb-2">${name}</h6>
+                                    <img src="${image}" alt="${name}" 
+                                         style="width:100%; max-height:150px; object-fit:cover; border-radius:8px; margin-bottom:8px;">
+                                    <p style="font-size: 13px; color:#555;">${description}</p>
+                                    <p style="font-size: 12px; margin:0;">
+                                        <strong>Kategori:</strong> ${category}<br>
+                                        <strong>Lokasi:</strong> ${location}
                                     </p>
-                                    <a href="/cultural/${feature.properties.id}" class="btn btn-sm btn-warning text-dark fw-bold">
-                                        Lanjut »
-                                    </a>
+                                    <div class="mt-2 d-flex justify-content-between">
+                                        <a href="/cultural/${feature.properties.id}" 
+                                           class="btn btn-sm btn-warning text-dark fw-bold btn-map">
+                                           <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="Detail">
+                                           Lanjut »
+                                        </a>
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}" 
+                                           target="_blank" 
+                                           class="btn btn-sm btn-warning text-dark fw-bold btn-map">
+                                           <img src="https://cdn-icons-png.flaticon.com/512/2875/2875433.png" alt="GMaps">
+                                           Rute »
+                                        </a>
+                                    </div>
                                 </div>
                             `;
+
                             layer.bindPopup(content);
 
-                            // ✅ Jika cultural_id cocok, langsung buka popup
+                            // ✅ Buka popup otomatis jika cultural_id cocok
                             if (targetId && feature.properties.id == targetId) {
                                 map.setView(layer.getLatLng(), 15);
                                 setTimeout(() => layer.openPopup(), 500);
@@ -122,12 +160,14 @@
                         }
                     },
                     pointToLayer: function(feature, latlng) {
-                        return L.marker(latlng, {icon: L.icon({
-                            iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
-                            iconSize: [30, 30],
-                            iconAnchor: [15, 30],
-                            popupAnchor: [0, -30]
-                        })});
+                        return L.marker(latlng, {
+                            icon: L.icon({
+                                iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+                                iconSize: [30, 30],
+                                iconAnchor: [15, 30],
+                                popupAnchor: [0, -30]
+                            })
+                        });
                     }
                 }).addTo(map);
 

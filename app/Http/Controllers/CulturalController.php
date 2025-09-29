@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class CulturalController extends Controller
 {
+    // Halaman dashboard -> hanya ambil 3 data tertentu
+    public function dashboard()
+    {
+        // misal ambil id 1, 2, 3
+        $ids = [3, 22, 1];
+
+        $culturals = Cultural::whereIn('id', $ids)
+        ->orderByRaw("FIELD(id, " . implode(',', $ids) . ")")
+        ->get();
+
+        return view('dashboard', compact('culturals'));
+    }
+
     // Menampilkan semua data kebudayaan dengan opsi sortir & pagination
     public function index(Request $request)
     {
@@ -30,6 +43,7 @@ class CulturalController extends Controller
         $culturals = $query->paginate(9)->withQueryString();;
 
         return view('cultural.index', compact('culturals'));
+        
     }
 
     // Menampilkan detail kebudayaan berdasarkan ID

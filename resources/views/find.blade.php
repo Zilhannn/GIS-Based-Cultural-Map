@@ -95,7 +95,7 @@
             </div>
             <button type="submit" class="btn btn-warning text-dark fw-bold mt-3">Cari Sekarang!</button>
         </form>
-        <p>Contoh: <em>Candi Cangkuang, Kampung Pulo, Dodol</em></p>
+        <p>Contoh: <em>Candi Cangkuang, Kampung Pulo</em></p>
     </div>
 </div>
 @endsection
