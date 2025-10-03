@@ -9,13 +9,14 @@
         
         <div class="overlay"></div>
         <div class="content position-relative">
-            <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">
+            <h1 class="display-4 fw-bold animate__animated animate__fadeInDown text-softblue">
                 Eksplorasi Budaya Garut
             </h1>
-            <p class="lead animate__animated animate__fadeInUp">
+            <p class="lead animate__animated animate__fadeInUp text-light">
                 Temukan keindahan dan kekayaan budaya Garut langsung dalam Cultural Map interaktif.
             </p>
-            <a href="{{ url('/map') }}" class="btn btn-warning btn-lg shadow-lg mt-3 animate__animated animate__pulse animate__infinite">
+            <!-- Tambahkan animasi custom untuk tombol -->
+            <a href="{{ url('/map') }}" class="btn btn-softblue btn-lg shadow-lg mt-3 btn-animated">
                 Jelajahi Cultural Map
             </a>
         </div>
@@ -31,7 +32,7 @@
 
         <div class="container position-relative text-light">
             <div class="text-center mb-4">
-                <h2 class="fw-bold text-warning">Budaya Khas Garut</h2>
+                <h2 class="fw-bold text-softblue">Budaya Khas Garut</h2>
                 <p class="text-light">Beberapa kekayaan budaya Garut yang patut kamu ketahui</p>
             </div>
             
@@ -43,12 +44,16 @@
                                  class="card-img-top img-fluid" 
                                  style="height:220px; object-fit:cover;" 
                                  alt="{{ $cultural->name }}">
-                            <div class="card-body text-light">
+                            <div class="card-body">
                                <h5 class="card-title">
-                                    <a href="{{ route('cultural.show', $cultural->id) }}" class="text-warning text-decoration-none">{{ $cultural->name }}
+                                    <a href="{{ route('cultural.show', $cultural->id) }}" 
+                                       class="link-blue">
+                                       {{ $cultural->name }}
                                     </a>
                                 </h5>
-                                <p class="card-text">{{ Str::limit($cultural->description, 120) }}</p>
+                                <p class="card-text">
+                                    {{ Str::limit($cultural->description, 120) }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -85,8 +90,57 @@ html {
 
 /* Efek perubahan saat discroll */
 .navbar.scrolled {
-    background-color: rgba(0, 0, 0, 0.85) !important;
+    background-color: rgba(66, 165, 245, 0.95) !important; /* soft blue transparan */
     transition: background-color 0.3s ease;
+}
+
+/* Warna soft blue custom */
+.text-softblue {
+    color: #42a5f5 !important;
+}
+
+.btn-softblue {
+    background-color: #42a5f5;
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.btn-softblue:hover {
+    background-color: #1e88e5;
+    color: #fff;
+}
+
+/* Tombol animasi custom */
+.btn-animated {
+    animation: pulse-bounce 2s infinite;
+}
+@keyframes pulse-bounce {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(66,165,245, 0.7);
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 25px rgba(66,165,245, 0.8);
+    }
+}
+
+/* Link judul card */
+.link-blue {
+    color: #42a5f5; /* soft blue */
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.link-blue:hover {
+    color: #90caf9; /* biru lebih terang saat hover */
+}
+
+/* Deskripsi card */
+.card-text {
+    color: rgba(255,255,255,0.85); /* putih transparan agar jelas */
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 </style>
 @endpush

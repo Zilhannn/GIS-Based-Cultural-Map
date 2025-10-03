@@ -3,10 +3,10 @@
 @section('title', $cultural->name)
 
 @section('content')
-<div class="container mt-5 p-4 rounded-3 content-box">
+<div class="container mt-5 p-4 rounded-3 content-box animate__animated animate__fadeIn">
     <div class="row g-4">
         <!-- Kolom Gambar -->
-        <div class="col-md-6">
+        <div class="col-md-6 animate__animated animate__zoomIn">
             <!-- Carousel -->
             <div id="culturalCarousel" class="carousel slide shadow-lg rounded-3" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -60,41 +60,41 @@
         </div>
 
         <!-- Kolom Detail -->
-        <div class="col-md-6 text-light">
-            <h2 class="fw-bold text-warning">{{ $cultural->name }}</h2>
+        <div class="col-md-6 text-light animate__animated animate__fadeInUp">
+            <h2 class="fw-bold text-info title-glow">{{ $cultural->name }}</h2>
             <hr class="border-light my-3">
-            <p><strong class="text-warning">Kategori:</strong> {{ $cultural->category }}</p>
-            <p><strong class="text-warning">Lokasi:</strong> {{ $cultural->location }}</p>
+            <p><strong class="text-info">Kategori:</strong> {{ $cultural->category }}</p>
+            <p><strong class="text-info">Lokasi:</strong> {{ $cultural->location }}</p>
 
             <!-- Deskripsi Dibagi Bagian -->
             <div class="mt-4">
                 @if($cultural->description)
-                    <h5 class="text-warning fw-bold">Deskripsi</h5>
+                    <h5 class="text-info fw-bold">Deskripsi</h5>
                     <p>{{ $cultural->description }}</p>
                 @endif
 
                 @if($cultural->history)
-                    <h5 class="text-warning fw-bold">Sejarah Singkat</h5>
+                    <h5 class="text-info fw-bold">Sejarah Singkat</h5>
                     <p>{{ $cultural->history }}</p>
                 @endif
 
                 @if($cultural->nowaday)
-                    <h5 class="text-warning fw-bold">Keadaan Sekarang</h5>
+                    <h5 class="text-info fw-bold">Keadaan Sekarang</h5>
                     <p>{{ $cultural->nowaday }}</p>
                 @endif
 
                 @if($cultural->cult_now)
-                    <h5 class="text-warning fw-bold">Adat & Kebudayaan</h5>
+                    <h5 class="text-info fw-bold">Adat & Kebudayaan</h5>
                     <p>{{ $cultural->cult_now }}</p>
                 @endif
             </div>
 
             <!-- Tombol navigasi -->
-            <div class="mt-5 d-flex flex-wrap justify-content-between align-items-center gap-3 nav-buttons">
+            <div class="mt-5 d-flex flex-wrap justify-content-between align-items-center gap-3 nav-buttons animate__animated animate__fadeInUp">
                 {{-- Previous --}}
                 @if($prev = \App\Models\Cultural::where('id', '<', $cultural->id)->orderBy('id','desc')->first())
                     <a href="{{ route('cultural.show', $prev->id) }}" 
-                       class="btn btn-outline-warning fw-bold px-3">
+                       class="btn btn-outline-info fw-bold px-3">
                         ← {{ Str::limit($prev->name, 15) }}
                     </a>
                 @else
@@ -107,7 +107,7 @@
                         <i class="bi bi-list"></i> Kembali
                     </a>
                     @if($cultural->has_map)
-                        <a href="{{ url('/map') }}?cultural_id={{ $cultural->id }}" class="btn btn-warning ...">
+                        <a href="{{ url('/map') }}?cultural_id={{ $cultural->id }}" class="btn btn-info text-dark fw-bold shadow-sm">
                             <i class="bi bi-map-fill"></i> Lihat di Map
                         </a>
                     @endif
@@ -115,7 +115,7 @@
                 {{-- Next --}}
                 @if($next = \App\Models\Cultural::where('id', '>', $cultural->id)->orderBy('id','asc')->first())
                     <a href="{{ route('cultural.show', $next->id) }}" 
-                       class="btn btn-outline-warning fw-bold px-3">
+                       class="btn btn-outline-info fw-bold px-3">
                         {{ Str::limit($next->name, 15) }} →
                     </a>
                 @else
@@ -147,21 +147,48 @@
         gap: 8px;
     }
     .carousel-indicators img.active {
-        border: 2px solid #ffc107;
+        border: 2px solid #0dcaf0;
     }
-    .btn-outline-warning {
+    .btn-outline-info {
         border-width: 2px;
     }
 
+    /* Perbaikan tombol kembali */
+    a.btn.btn-outline-light {
+    color: #fff !important;
+    border-color: #fff !important;
+    transition: all 0.3s ease;
+    }
+    a.btn.btn-outline-light:hover,
+    a.btn.btn-outline-light:focus,
+    a.btn.btn-outline-light:active,
+    a.btn.btn-outline-light:not(:disabled):not(.disabled).active {
+        background-color: #fff !important;
+        color: #000 !important; /* teks hitam */
+        border-color: #fff !important;
+        box-shadow: 0px 0px 10px rgba(255,255,255,0.5) !important;
+    }
     /* Tambahan spacing tombol */
     .nav-buttons .btn {
         min-width: 130px;
+        transition: all 0.3s ease;
     }
+    .nav-buttons .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 4px 12px rgba(13, 202, 240, 0.5);
+    }
+
     .nav-buttons {
         gap: 1rem !important;
     }
 
-    /* Responsive: tombol stack di layar kecil */
+    /* Glow lembut judul */
+    .title-glow {
+    text-shadow: 0 0 4px rgba(13, 202, 240, 0.4),
+                 0 0 8px rgba(13, 202, 240, 0.25);
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
         .nav-buttons {
             flex-direction: column;
