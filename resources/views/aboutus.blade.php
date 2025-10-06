@@ -60,7 +60,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4 col-12 mb-4">
                 <div class="team-card p-3 rounded shadow-sm animate__animated animate__zoomIn animate-delay-1">
-                    <img src="https://via.placeholder.com/120" alt="Foto Pengembang 1" 
+                    <img src="{{ asset('assets/Zilhan2.jpg') }}" alt="Foto Pengembang 1" 
                          class="rounded-circle mb-3 dev-photo" width="120">
                     <h6 class="fw-bold text-soft-strong">M. Zilhan Salman Ramadhan</h6>
                     <p style="text-align: center" class="text-soft mb-1">Fullstack Developer</p>
@@ -69,7 +69,7 @@
             </div>
             <div class="col-md-4 col-12 mb-4">
                 <div class="team-card p-3 rounded shadow-sm animate__animated animate__zoomIn animate-delay-2">
-                    <img src="https://via.placeholder.com/120" alt="Foto Pengembang 2" 
+                    <img src="{{ asset('assets/Galdiaz.jpg') }}" alt="Foto Pengembang 2" 
                          class="rounded-circle mb-3 dev-photo" width="120">
                     <h6 class="fw-bold text-soft-strong">Moch. Galdiaz Nugraha Prawira</h6>
                     <p style="text-align: center" class="text-soft mb-1">GIS Developer</p>

@@ -9,9 +9,7 @@ Route::get('/dashboard', [CulturalController::class, 'dashboard'])->name('dashbo
 Route::get('/cultural', [CulturalController::class, 'index'])->name('cultural.index');
 Route::get('/cultural/{id}', [CulturalController::class, 'show'])->name('cultural.show');
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', [CulturalController::class, 'dashboard'])->name('home');
 
 Route::get('/map', function () {
     return view('map');
