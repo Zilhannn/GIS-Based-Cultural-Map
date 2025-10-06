@@ -138,9 +138,11 @@ html {
 
 /* Deskripsi card */
 .card-text {
-    color: rgba(255,255,255,0.85); /* putih transparan agar jelas */
+    color: rgba(255,255,255,0.85);
     font-size: 0.95rem;
     line-height: 1.4;
+    text-align: justify; /* 🔹 Tambahkan ini */
+    text-justify: inter-word; /* 🔹 Supaya jarak antar kata rapi */
 }
 </style>
 @endpush
