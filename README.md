@@ -52,11 +52,11 @@ CulturalMapGarut/
 ## ⚙️ Cara Menjalankan Proyek
 1. Clone repository ini:
    ```bash
-   git clone https://github.com/username/CulturalMapGarut.git
+   git clone https://github.com/Zilhannn/GIS-Based-Cultural-Map
    ```
 2. Masuk ke folder project:
    ```bash
-   cd CulturalMapGarut
+   cd GIS-Based-Cultural-Map
    ```
 3. Install dependencies:
    ```bash
