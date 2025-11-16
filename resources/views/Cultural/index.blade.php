@@ -76,7 +76,7 @@
                         <small class="text-light">
                             <i class="bi bi-geo-alt-fill"></i> {{ $cultural->location }}
                         </small>
-                        <a href="{{ route('cultural.show', $cultural->id) }}" 
+                        <a href="{{ route('cultural.show', $cultural->slug) }}" 
                            class="btn btn-primary btn-sm mt-2 align-self-start shadow-sm fw-bold">
                             Lihat Detail »
                         </a>
@@ -99,85 +99,101 @@
 
 @push('styles')
 <style>
-    /* Background hitam transparan untuk konten */
+    /* Content box */
     .content-box {
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(var(--darkgray-rgb), 0.95);
         box-shadow: 0 8px 20px rgba(0,0,0,0.6);
     }
 
-    /* Soft Blue Custom untuk Judul */
-    .text-softblue {
-        color: #42a5f5 !important; /* biru soft */
-        text-shadow: 0px 0px 6px rgba(66, 165, 245, 0.3); /* glow halus */
-    }
-
-    /* Card dengan animasi */
+    /* Cards */
     .custom-card {
+        background: var(--darkgray) !important;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .custom-card:hover {
         transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+        box-shadow: 0 12px 30px rgba(66,165,245,0.2);
     }
 
-    /* Overlay gradasi */
+    /* Card overlay */
     .overlay-gradient {
         background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
         border-radius: 0 0 10px 10px;
     }
 
-    /* Dropdown style + animasi */
+    .card-title {
+        color: var(--softblue) !important;
+    }
+
+    /* Custom dropdown */
     .custom-dropdown {
-        background-color: #111;
-        color: #0d6efd;
-        border: 1px solid #0d6efd;
+        background: var(--darkgray);
+        color: var(--softblue);
+        border: 1px solid var(--softblue);
         border-radius: 25px;
         padding: 6px 14px;
         transition: all 0.3s ease;
         cursor: pointer;
     }
+
     .custom-dropdown:hover {
-        background-color: #0d6efd;
+        background: var(--softblue);
         color: #fff;
-        box-shadow: 0px 0px 15px rgba(13,110,253,0.7);
-        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(66,165,245,0.4);
     }
+
     .custom-dropdown:focus {
         outline: none;
-        box-shadow: 0px 0px 12px rgba(13,110,253,0.9);
+        box-shadow: 0 0 12px rgba(66,165,245,0.5);
     }
+
     .custom-dropdown option {
-        background-color: #333;
+        background: var(--darkgray);
         color: #fff;
     }
 
-    /* Pagination style */
+    /* Pagination */
     .pagination .page-link {
-        background-color: #222;
-        color: #0d6efd;
-        border: 1px solid #0d6efd;
+        background: var(--darkgray);
+        color: var(--softblue);
+        border: 1px solid var(--softblue);
         transition: all 0.3s ease;
     }
+
     .pagination .page-link:hover {
-        background-color: #0d6efd;
+        background: var(--softblue);
         color: #fff;
     }
+
     .pagination .active .page-link {
-        background-color: #0d6efd !important;
-        border-color: #0d6efd !important;
+        background: var(--softblue) !important;
+        border-color: var(--softblue) !important;
         color: #fff !important;
     }
 
-    /* Hover efek tombol */
-    .btn-primary {
-        background: #0d6efd;
-        border: none;
-        transition: all 0.3s ease;
+    /* Buttons */
+    .btn-outline-primary {
+        color: var(--softblue);
+        border-color: var(--softblue);
     }
+
+    .btn-outline-primary:hover {
+        background: var(--softblue);
+        border-color: var(--softblue);
+        color: #fff;
+    }
+
+    .btn-primary {
+        background: var(--softblue);
+        border: none;
+        color: #fff;
+    }
+
     .btn-primary:hover {
-        background: #2196f3;
+        background: var(--darkblue);
         transform: scale(1.05);
-        box-shadow: 0px 4px 12px rgba(13, 110, 253, 0.5);
+        box-shadow: 0 4px 12px rgba(66,165,245,0.5);
     }
 </style>
 @endpush

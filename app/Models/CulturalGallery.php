@@ -13,6 +13,20 @@ class CulturalGallery extends Model
 
     public function cultural()
     {
-        return $this->belongsTo(Cultural::class);
+        return $this->belongsTo(Cultural::class, 'cultural_id');
+    }
+
+    // Akses URL gambar siap pakai
+    public function getImageUrlAttribute()
+    {
+        // Pastikan file benar-benar ada di public/storage/
+        $path = public_path('storage/' . $this->image_path);
+
+        if ($this->image_path && file_exists($path)) {
+            return asset('storage/' . $this->image_path);
+        }
+
+        // fallback jika tidak ada gambar
+        return asset('images/no-image.png');
     }
 }

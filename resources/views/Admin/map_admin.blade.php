@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.app_admin')
 
-@section('title', 'Cultural Map')
+@section('title', 'Maps Kebudayaan Admin')
 
 @section('content')
 <div class="container-fluid mt-4">
     <div class="map-container">
-        <h1 class="text-softblue text-center mb-3 fw-bold">Cultural Map Garut</h1>
-        <h5 class="text-light text-center mb-4 opacity-75">Eksplorasi lokasi wisata budaya khas Garut melalui peta interaktif.</h5>
+        <h1 class="text-softblue text-center mb-3 fw-bold">Cultural Map Garut (Admin)</h1>
+        <h5 class="text-light text-center mb-4 opacity-75">Kelola dan eksplorasi lokasi wisata budaya khas Garut melalui peta interaktif.</h5>
         <div id="map"></div>
     </div>
 </div>
@@ -20,6 +20,38 @@
         <button class="btn btn-primary fw-bold mt-2" onclick="closeOverlay()">Tutup</button>
     </div>
 </div>
+
+{{-- Modal Konfirmasi Hapus --}}
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content soft-modal text-light shadow-lg border-0 rounded-4">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-semibold text-softblue"><i class="bi bi-exclamation-triangle me-2 text-danger"></i> Konfirmasi Penghapusan</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <p class="fs-6 mb-2">Apakah Anda yakin ingin menghapus data "<strong id="deleteItemName">item</strong>" beserta semua gambarnya?</p>
+                <p class="small text-muted mb-0">Tindakan ini tidak dapat dibatalkan.</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" class="btn btn-cancel px-4" data-bs-dismiss="modal">Batal</button>
+                <button type="button" id="btnConfirmDelete" class="btn btn-softblue px-4 fw-semibold">Hapus</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- Modal Sukses Hapus --}}
+<div class="modal fade" id="successDeleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content soft-modal text-light shadow-lg border-0 rounded-4 text-center py-4">
+            <i class="bi bi-trash-fill text-danger fs-1 mb-3"></i>
+            <h5 class="fw-semibold mb-2" id="successDeleteMessage">Data Berhasil Dihapus!</h5>
+            <p class="small text-muted mb-0">Item telah dihapus dari sistem.</p>
+        </div>
+    </div>
+</div>
+@endsection
 
 @push('styles')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -254,14 +286,13 @@
                     <span class="text-softblue">Kategori:</span> ${item.category ?? "-"}<br>
                     <span class="text-softblue">Lokasi:</span> ${item.location ?? "-"}
                 </p>
-                <div class="mt-2 d-flex justify-content-between">
-                    <a href="/cultural/${item.slug}" class="btn btn-sm btn-map fw-bold">
-                       <i class="bi bi-box-arrow-up-right me-1"></i> Lanjut
+                <div class="mt-2 d-flex justify-content-between gap-2">
+                    <a href="/admin/cultural/${item.slug}/edit" class="btn btn-sm btn-map fw-bold flex-grow-1">
+                       <i class="bi bi-pencil-square"></i> Edit
                     </a>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}" 
-                       target="_blank" class="btn btn-sm btn-map fw-bold">
-                       <i class="bi bi-geo-alt-fill me-1"></i> Rute
-                    </a>
+                    <button type="button" class="btn btn-sm btn-map fw-bold" onclick="openDeleteModal(${item.id}, '${item.slug}', '${item.name}')">
+                       <i class="bi bi-trash"></i> Hapus
+                    </button>
                 </div>
             </div>
         `;
@@ -294,6 +325,45 @@
             showOverlay();
         }
     }
+
+    // === Delete Modal ===
+    let deleteSlug = null;
+    let deleteName = null;
+
+    function openDeleteModal(id, slug, name) {
+        deleteSlug = slug;
+        deleteName = name;
+        const modal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+        document.getElementById('deleteItemName').textContent = name;
+        modal.show();
+    }
+
+    document.getElementById('btnConfirmDelete').addEventListener('click', function() {
+        if (!deleteSlug) return;
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = `/admin/cultural/${deleteSlug}`;
+        
+        const csrfToken = document.createElement('input');
+        csrfToken.type = 'hidden';
+        csrfToken.name = '_token';
+        csrfToken.value = '{{ csrf_token() }}';
+        form.appendChild(csrfToken);
+        
+        const methodField = document.createElement('input');
+        methodField.type = 'hidden';
+        methodField.name = '_method';
+        methodField.value = 'DELETE';
+        form.appendChild(methodField);
+        
+        document.body.appendChild(form);
+        form.submit();
+    });
+
+    @if(session('success_delete'))
+        const successModal = new bootstrap.Modal(document.getElementById('successDeleteModal'));
+        successModal.show();
+        setTimeout(() => successModal.hide(), 2500);
+    @endif
 </script>
 @endpush
-@endsection

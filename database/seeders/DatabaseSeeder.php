@@ -8,9 +8,14 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Panggil CulturalSeeder
+        // Seed culturals and related data
         $this->call([
             CulturalSeeder::class,
         ]);
+        // Ensure an admin user exists for testing / development
+        $this->call(AdminUserSeeder::class);
+
+        // Seed geo data for culturals
+        $this->call(CulturalGeoSeeder::class);
     }
 }

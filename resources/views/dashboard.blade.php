@@ -16,7 +16,7 @@
                 Temukan keindahan dan kekayaan budaya Garut langsung dalam Cultural Map interaktif.
             </p>
             <!-- Tambahkan animasi custom untuk tombol -->
-            <a href="{{ url('/map') }}" class="btn btn-softblue btn-lg shadow-lg mt-3 btn-animated">
+            <a href="{{ route('map') }}" class="btn btn-softblue btn-lg shadow-lg mt-3 btn-animated">
                 Jelajahi Cultural Map
             </a>
         </div>
@@ -40,17 +40,17 @@
                 @foreach($culturals as $cultural)
                     <div class="col-md-4">
                         <div class="card shadow h-100 bg-dark bg-opacity-75 border-0">
-                            <img src="{{ asset('assets/'.$cultural->image) }}" 
+                            <img src="{{ asset('storage/'.$cultural->image) }}" 
                                  class="card-img-top img-fluid" 
                                  style="height:220px; object-fit:cover;" 
                                  alt="{{ $cultural->name }}">
                             <div class="card-body">
-                               <h5 class="card-title">
-                                    <a href="{{ route('cultural.show', $cultural->id) }}" 
-                                       class="link-blue">
-                                       {{ $cultural->name }}
-                                    </a>
-                                </h5>
+                                         <h5 class="card-title">
+                                                <a href="{{ route('cultural.show', $cultural->slug) }}" 
+                                                    class="link-blue">
+                                                    {{ $cultural->name }}
+                                                </a>
+                                          </h5>
                                 <p class="card-text">
                                     {{ Str::limit($cultural->description, 120) }}
                                 </p>
@@ -59,90 +59,89 @@
                     </div>
                 @endforeach
             </div>
+            <div class="text-center mt-4">
+                <a href="{{ route('cultural.index') }}" class="btn btn-softblue btn-lg shadow-lg btn-animated">
+                    Jelajahi Kebudayaan Lainnya =>
+                </a>
+            </div>
         </div>
     </section>
 @endsection
 
 @push('styles')
 <style>
-/* Overlay pada hero */
+/* Dashboard-specific styles */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
 .hero-section .overlay {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-}
-
-/* Scroll smooth */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Sticky navbar */
-.navbar {
-    position: sticky;
     top: 0;
-    z-index: 1030;
-    transition: background-color 0.3s ease;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-/* Efek perubahan saat discroll */
-.navbar.scrolled {
-    background-color: rgba(66, 165, 245, 0.95) !important; /* soft blue transparan */
-    transition: background-color 0.3s ease;
+.hero-section .content {
+    z-index: 2;
 }
 
-/* Warna soft blue custom */
-.text-softblue {
-    color: #42a5f5 !important;
+/* Custom animations for hero content */
+.hero-section .display-4 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation-delay: 0.2s;
 }
 
-.btn-softblue {
-    background-color: #42a5f5;
-    border: none;
-    color: #fff;
-    transition: all 0.3s ease;
-}
-.btn-softblue:hover {
-    background-color: #1e88e5;
-    color: #fff;
+.hero-section .lead {
+    animation-delay: 0.4s;
 }
 
-/* Tombol animasi custom */
-.btn-animated {
-    animation: pulse-bounce 2s infinite;
+.hero-section .btn-animated {
+    animation-delay: 0.6s;
 }
-@keyframes pulse-bounce {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(66,165,245, 0.7);
+
+/* Featured cards section */
+.featured-section {
+    background: rgba(var(--darkgray-rgb), 0.97);
+    padding: 4rem 0;
+}
+
+.featured-card {
+    border: 1px solid rgba(var(--softblue-rgb), 0.1);
+    background: rgba(0,0,0,0.3);
+}
+
+.featured-card img {
+    transition: transform 0.5s ease;
+}
+
+.featured-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Custom section spacing */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 80vh;
     }
-    50% {
-        transform: scale(1.08);
-        box-shadow: 0 0 25px rgba(66,165,245, 0.8);
+    
+    .hero-section .display-4 {
+        font-size: 2.5rem;
     }
-}
-
-/* Link judul card */
-.link-blue {
-    color: #42a5f5; /* soft blue */
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.link-blue:hover {
-    color: #90caf9; /* biru lebih terang saat hover */
-}
-
-/* Deskripsi card */
-.card-text {
-    color: rgba(255,255,255,0.85);
-    font-size: 0.95rem;
-    line-height: 1.4;
-    text-align: justify; /* 🔹 Tambahkan ini */
-    text-justify: inter-word; /* 🔹 Supaya jarak antar kata rapi */
+    
+    .featured-section {
+        padding: 2rem 0;
+    }
 }
 </style>
 @endpush

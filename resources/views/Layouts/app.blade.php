@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/Ngalalana_icon2.png') }}" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     @stack('styles')
@@ -44,6 +45,7 @@
                             <li><a class="dropdown-item" href="{{ route('cultural.index') }}">Daftar Kebudayaan Di Garut</a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="{{ url('/aboutus') }}">Tentang Kami</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/admin/login') }}">Login Sebagai Admin</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -123,6 +125,24 @@
             });
         });
     </script>
+    <script>
+        // If an admin cookie is present, redirect to admin dashboard.
+        // This runs even when the browser shows a cached version of a public page.
+        (function () {
+            try {
+                var cookies = document.cookie.split(';').map(function(c){ return c.trim(); });
+                var isAdmin = cookies.indexOf('is_admin=1') !== -1;
+                if (isAdmin) {
+                    // Avoid redirect loop if already on admin area
+                    if (!location.pathname.startsWith('/admin')) {
+                        location.replace('/admin/dashboard');
+                    }
+                }
+            } catch (e) {
+                console.debug('admin-redirect-check failed', e);
+            }
+        })();
+    </script>
 </body>
 </html>
 
@@ -132,27 +152,21 @@
         width: auto;
     }
 
-    /* ============================= */
-    /* OVERRIDE NAVBAR */
-    /* ============================= */
-
+    /* Navbar */
     .navbar {
-        transition: top 0.4s ease; /* supaya smooth saat hilang/muncul */
+        transition: top 0.4s ease;
     }
 
-    /* Default navbar */
     .navbar.navbar-dark {
-        background-color: #2f3a4a !important;  /* abu gelap */
+        background: var(--darkgray) !important;
         transition: all 0.3s ease;
     }
 
-    /* Saat discroll */
     .navbar.navbar-dark.navbar-scrolled {
-        background-color: rgba(47, 58, 74, 0.95) !important;
-        box-shadow: 0px 2px 10px rgba(0,0,0,0.3) !important;
+        background: rgba(var(--darkgray-rgb), 0.95) !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
     }
 
-    /* Link navbar */
     .navbar-dark .nav-link {
         color: #fff !important;
         font-weight: 500;
@@ -162,14 +176,14 @@
     .navbar-dark .nav-link:hover,
     .navbar-dark .nav-link:focus,
     .navbar-dark .nav-link:active {
-        color: #42a5f5 !important; /* biru soft */
-        text-shadow: 0px 0px 8px rgba(66, 165, 245, 0.6) !important;
+        color: var(--softblue) !important;
+        text-shadow: 0 0 8px rgba(var(--softblue-rgb), 0.6) !important;
         transform: scale(1.05);
     }
 
-    /* Footer dengan palet Disparbud */
+    /* Footer */
     .footer-disparbud {
-        background-color: #2f3a4a; /* biru abu gelap */
+        background: var(--darkgray);
         color: #fff;
         opacity: 0;
     }
@@ -179,13 +193,13 @@
     }
 
     .footer-disparbud a {
-        color: #b0bec5; /* abu terang */
+        color: var(--lightgray);
         text-decoration: none;
     }
 
     .footer-disparbud a:hover {
-        color: #42a5f5; /* soft blue */
-        text-shadow: 0px 0px 8px rgba(66, 165, 245, 0.6);
+        color: var(--softblue);
+        text-shadow: 0 0 8px rgba(var(--softblue-rgb), 0.6);
     }
 
     .footer-disparbud small {
@@ -193,15 +207,15 @@
         margin-top: 10px;
         padding-top: 10px;
         border-top: 1px solid rgba(255,255,255,0.1);
-        color: #b0bec5;
+        color: var(--lightgray);
     }
 
-    /* Dropdown custom */
+    /* Dropdown */
     .dropdown-menu {
-        background: linear-gradient(135deg, #42a5f5, #1e88e5);
+        background: linear-gradient(135deg, var(--softblue), var(--darkblue));
         border: none;
         border-radius: 10px;
-        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
         padding: 8px 0;
     }
 
@@ -225,7 +239,7 @@
         margin: 6px 0;
     }
 
-    /* Efek highlight pada semua link dan tombol */
+    /* Global link effects */
     a.nav-link, 
     .dropdown-item, 
     .btn, 
@@ -239,7 +253,7 @@
     .btn:hover,
     a:hover {
         color: #fff !important;
-        text-shadow: 0px 0px 8px rgba(66, 165, 245, 0.8);
+        text-shadow: 0 0 8px rgba(var(--softblue-rgb), 0.8);
         transform: scale(1.05);
     }
 </style>

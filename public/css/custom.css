@@ -1,0 +1,349 @@
+/* Common Styles for Ngalalana Cultural Map */
+
+/* Colors */
+:root {
+    --softblue: #42a5f5;
+    --darkblue: #1e88e5;
+    --darkgray: #2f3a4a;
+    --lightgray: #b0bec5;
+    
+    /* RGB values for opacity variations */
+    --softblue-rgb: 66, 165, 245;
+    --darkblue-rgb: 30, 136, 229;
+    --darkgray-rgb: 47, 58, 74;
+    --lightgray-rgb: 176, 190, 197;
+    
+    /* Common gradients */
+    --gradient-blue: linear-gradient(135deg, var(--softblue), var(--darkblue));
+    --gradient-dark: linear-gradient(135deg, var(--darkgray), rgba(26, 35, 126, 0.95));
+}
+
+/* Global Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Text Colors */
+.text-softblue {
+    color: var(--softblue) !important;
+}
+
+/* Buttons */
+.btn-softblue {
+    background-color: var(--softblue);
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-softblue:hover {
+    background-color: var(--darkblue);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.btn-animated {
+    animation: pulse-bounce 2s infinite;
+}
+
+@keyframes pulse-bounce {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(66,165,245, 0.7);
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 25px rgba(66,165,245, 0.8);
+    }
+}
+
+/* Cards */
+.card {
+    transition: all 0.3s ease;
+    background: rgba(var(--darkgray-rgb), 0.95);
+    border: none;
+    color: #fff;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Stat Cards */
+.stat-card {
+    background: rgba(20, 20, 20, 0.7);
+    border: 1px solid rgba(var(--softblue-rgb), 0.25);
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.4s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(var(--softblue-rgb), 0.25);
+}
+
+/* Card Headers */
+.card-header {
+    background: var(--gradient-dark);
+    border-bottom: 1px solid rgba(var(--softblue-rgb), 0.2);
+}
+
+.card-header.bg-softblue {
+    background: var(--gradient-blue);
+}
+
+/* Card with hover animation */
+.card.hover-card {
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(var(--softblue-rgb), 0.2);
+}
+
+.card-text {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Links */
+.link-blue {
+    color: var(--softblue);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-blue:hover {
+    color: var(--darkblue);
+}
+
+/* Overlays */
+.overlay {
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Modal Dialogs */
+.modal .modal-content {
+    background: linear-gradient(135deg, var(--darkgray), #1a237e);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+}
+
+.modal .modal-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.modal .modal-footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.modal .close {
+    color: #fff;
+}
+
+.modal .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.modal-backdrop.show {
+    opacity: 0.7;
+}
+
+/* Success/Info Modals */
+.modal-success .modal-content {
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+}
+
+.modal-info .modal-content {
+    background: linear-gradient(135deg, var(--softblue), var(--darkblue));
+}
+
+/* Delete Confirmation Modal */
+.modal-danger .modal-content {
+    background: linear-gradient(135deg, #e53935, #c62828);
+}
+
+/* Form Controls */
+.form-control, .form-select {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(var(--softblue-rgb), 0.3);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(255,255,255,0.15);
+    border-color: var(--softblue);
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(var(--softblue-rgb), 0.15);
+}
+
+.form-control::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.input-group-text {
+    background: rgba(var(--darkgray-rgb), 0.8);
+    border: 1px solid rgba(var(--softblue-rgb), 0.3);
+    color: var(--softblue);
+}
+
+/* Form label */
+.form-label {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* Section Headers */
+.section-header {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.section-header:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--softblue);
+}
+
+.section-header.text-center:after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tables */
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-color: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table > :not(caption) > * > * {
+    background-color: var(--bs-table-bg);
+    border-bottom-color: rgba(var(--softblue-rgb), 0.2);
+}
+
+.table > thead {
+    background: var(--gradient-dark);
+}
+
+.table > thead th {
+    color: var(--softblue);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(var(--softblue-rgb), 0.3);
+}
+
+.table-dark {
+    --bs-table-bg: rgba(var(--darkgray-rgb), 0.95);
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
+    --bs-table-hover-bg: rgba(var(--softblue-rgb), 0.1);
+}
+
+.table-responsive {
+    border-radius: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+    background: var(--darkgray) !important;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(var(--softblue-rgb), 0.95) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: var(--softblue) !important;
+    text-shadow: 0 0 8px rgba(var(--softblue-rgb), 0.6);
+    transform: scale(1.05);
+}
+
+.dropdown-menu {
+    background: var(--gradient-blue);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    margin: 2px 8px;
+    padding: 8px 12px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    padding-left: 20px;
+    transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+}

@@ -81,96 +81,115 @@
 </div>
 
 <style>
+    /* Logos */
     .ngalalana-logo {
         max-width: 350px;
         height: auto;
-        filter: drop-shadow(0 0 8px rgba(0,0,0,0.4));
-        transition: transform 0.5s ease, filter 0.5s ease;
+        filter: drop-shadow(0 0 8px rgba(var(--darkgray-rgb), 0.4));
+        transition: all 0.5s ease;
         cursor: pointer;
     }
 
     .campus-logo {
         max-width: 120px;
         height: auto;
-        transition: transform 0.5s ease, filter 0.5s ease;
+        transition: all 0.5s ease;
     }
 
     .ngalalana-logo:hover,
     .campus-logo:hover {
         transform: scale(1.05);
-        filter: drop-shadow(0 0 12px rgba(13,110,253,0.5));
+        filter: drop-shadow(0 0 15px rgba(var(--softblue-rgb), 0.5));
     }
 
+    /* Section layout */
     .about-section {
         min-height: 100vh;
         background: url("{{ asset('images/garut-bg.jpg') }}") no-repeat center center/cover;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0;
     }
 
     .about-box {
         position: relative;
         z-index: 2;
-        background: rgba(0,0,0,0.75);
+        background: rgba(var(--darkgray-rgb), 0.95);
         padding: 50px 60px;
         border-radius: 15px;
         max-width: 1000px;
         width: 90%;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        box-shadow: 0 8px 25px rgba(var(--softblue-rgb), 0.2);
     }
 
+    /* Text styles */
     .glow-text {
-        text-shadow: 0px 0px 6px rgba(13,110,253,0.6);
+        text-shadow: 0 0 8px rgba(var(--softblue-rgb), 0.4);
+        color: var(--softblue);
     }
 
     .text-soft {
-        color: rgba(255,255,255,0.75) !important;
+        color: var(--lightgray) !important;
         line-height: 1.7;
         text-align: justify;
     }
+
     .text-soft-strong {
         color: rgba(255,255,255,0.9) !important;
     }
 
+    /* Team cards */
     .team-card {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(var(--darkgray-rgb), 0.7);
+        border: 1px solid rgba(var(--softblue-rgb), 0.2);
+        border-radius: 12px;
         transition: all 0.4s ease;
     }
+
     .team-card:hover {
         transform: translateY(-6px) scale(1.02);
-        box-shadow: 0 0 15px rgba(13,110,253,0.4);
+        box-shadow: 0 8px 25px rgba(var(--softblue-rgb), 0.3);
+        background: rgba(var(--darkgray-rgb), 0.8);
     }
 
     .dev-photo {
         transition: all 0.4s ease;
-        box-shadow: 0 0 8px rgba(255,255,255,0.15);
-    }
-    .dev-photo:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 15px rgba(13,110,253,0.5);
+        box-shadow: 0 0 12px rgba(var(--softblue-rgb), 0.2);
     }
 
-    .animate__animated {
-        animation-duration: 1s;
+    .dev-photo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(var(--softblue-rgb), 0.4);
     }
+
+    /* Animations */
+    .animate__animated {
+        animation-duration: 0.8s;
+    }
+
     .animate-delay-1 {
         animation-delay: 0.3s;
     }
+
     .animate-delay-2 {
         animation-delay: 0.6s;
     }
 
-    /* ===== Custom Modal ===== */
+    /* Modal styles */
     .custom-modal {
         visibility: hidden;
         opacity: 0;
-        transition: opacity 0.4s ease, visibility 0.4s ease;
+        transition: all 0.4s ease;
         display: flex;
         position: fixed;
         z-index: 9999;
-        left: 0; top: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.65);
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
         backdrop-filter: blur(6px);
         justify-content: center;
         align-items: center;
@@ -183,77 +202,88 @@
     }
 
     .modal-content-custom {
-        background: rgba(0,0,0,0.85);
+        background: var(--gradient-dark);
         padding: 30px 40px;
         border-radius: 15px;
-        max-width: 700px;   /* ukuran popup kembali normal */
+        max-width: 700px;
         width: 90%;
         text-align: center;
         color: white;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        box-shadow: 0 8px 25px rgba(var(--softblue-rgb), 0.2);
         position: relative;
         animation-duration: 0.5s;
-
-        /* scrollable */
         max-height: 80vh;
         overflow-y: auto;
         scroll-behavior: smooth;
     }
 
-    /* scrollbar style */
     .modal-content-custom::-webkit-scrollbar {
         width: 8px;
     }
+
     .modal-content-custom::-webkit-scrollbar-thumb {
-        background: rgba(255,255,255,0.3);
+        background: rgba(var(--softblue-rgb), 0.3);
         border-radius: 4px;
     }
 
     .modal-content-custom img {
-        margin-top: 15px;
-        margin-bottom: 25px;
+        margin: 1.5rem 0;
+        max-width: 180px;
+        filter: drop-shadow(0 4px 12px rgba(var(--softblue-rgb), 0.3));
     }
 
     .close-btn {
         position: absolute;
-        top: 10px; right: 15px;
-        color: #fff;
+        top: 15px;
+        right: 20px;
+        color: var(--lightgray);
         font-size: 28px;
         font-weight: bold;
         cursor: pointer;
-        transition: 0.3s;
+        transition: all 0.3s ease;
     }
+
     .close-btn:hover {
         color: #ff4444;
+        transform: scale(1.1);
     }
 
-    .filosofi-list ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        list-style: none;
-        padding-left: 0;
-        margin-top: 15px;
-        margin-bottom: 15px;
+    /* Philosophy list */
+    .filosofi-list {
+        text-align: left;
+        padding: 1rem 0;
     }
-    .filosofi-list ul li {
-        flex: 1 1 45%;   /* jadi 2 kolom */
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
+
+    .filosofi-list p {
+        margin-bottom: 1rem;
         line-height: 1.6;
-        font-size: 0.95rem;
-    }
-    .filosofi-list ul li .icon {
-        font-size: 1.2rem;
-        flex-shrink: 0;
-        margin-top: 2px;
     }
 
-    /* Mobile fallback: 1 kolom */
-    @media(max-width: 768px){
-        .filosofi-list ul li {
-            flex: 1 1 100%;
+    .filosofi-list strong {
+        color: var(--softblue);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .about-box {
+            padding: 30px;
+            width: 95%;
+        }
+
+        .team-card {
+            margin-bottom: 1rem;
+        }
+
+        .ngalalana-logo {
+            max-width: 280px;
+        }
+
+        .modal-content-custom {
+            padding: 20px;
+        }
+
+        .filosofi-list {
+            padding: 0.5rem 0;
         }
     }
 </style>
