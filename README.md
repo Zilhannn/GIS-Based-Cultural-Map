@@ -1,61 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🗺️ Cultural Map Garut, Jawa Barat, Indonesia
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📖 Tentang Proyek
+**Cultural Map Garut** adalah proyek berbasis web yang bertujuan untuk memperkenalkan serta melestarikan kekayaan budaya yang ada di Kabupaten Garut, Jawa Barat.  
+Melalui peta interaktif, pengguna dapat menjelajahi lokasi-lokasi bersejarah, situs budaya, kesenian tradisional, hingga kuliner khas yang menjadi identitas masyarakat Garut.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🎯 Tujuan Proyek
+- Menyediakan platform interaktif untuk mengenalkan budaya Garut kepada masyarakat luas.  
+- Menjadi sumber informasi digital bagi wisatawan dan peneliti.  
+- Mendorong pelestarian budaya lokal melalui teknologi.  
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🧩 Fitur Utama
+- 🌍 **Peta Interaktif:** Menampilkan titik lokasi situs budaya, tempat wisata, dan kuliner khas.  
+- 🏛️ **Informasi Detail:** Deskripsi sejarah, foto, dan keterangan setiap lokasi.  
+- 🔍 **Fitur Pencarian:** Memudahkan pengguna menemukan destinasi berdasarkan kategori.  
+- 📱 **Tampilan Responsif:** Dapat diakses dari perangkat desktop maupun mobile.  
+- 🗃️ **Integrasi GIS:** Menggunakan **QGIS** untuk manajemen data spasial.  
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🧠 Teknologi yang Digunakan
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+| Teknologi | Keterangan |
+|------------|-------------|
+| **Laravel** | Framework utama untuk backend |
+| **Leaflet.js / Mapbox** | Library untuk menampilkan peta interaktif |
+| **MySQL / PostgreSQL** | Database penyimpanan data budaya |
+| **QGIS** | Pengelolaan data spasial (GIS) |
+| **Bootstrap / Tailwind CSS** | Tampilan antarmuka web |
+| **JavaScript (Vue/React)** | Interaktivitas peta dan UI |
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🗂️ Struktur Proyek
+```
+CulturalMapGarut/
+│
+├── app/                 # Logika backend Laravel
+├── public/              # Aset publik (gambar, CSS, JS)
+├── resources/           # View & komponen frontend
+├── routes/              # File routing Laravel
+├── database/            # Migrasi & seeding data
+└── README.md            # Dokumentasi proyek
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## ⚙️ Cara Menjalankan Proyek
+1. Clone repository ini:
+   ```bash
+   git clone https://github.com/Zilhannn/GIS-Based-Cultural-Map
+   ```
+2. Masuk ke folder project:
+   ```bash
+   cd GIS-Based-Cultural-Map
+   ```
+3. Install dependencies:
+   ```bash
+   composer install
+   npm install
+   ```
+4. Salin file `.env.example` menjadi `.env` lalu ubah konfigurasi database.
+5. Jalankan migration:
+   ```bash
+   php artisan migrate
+   ```
+6. Jalankan server lokal:
+   ```bash
+   php artisan serve
+   ```
+7. Akses di browser:
+   ```
+   http://localhost:8000
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 📸 Tangkapan Layar (Screenshots)
+> Tambahkan gambar antarmuka atau peta interaktif di sini  
+> (misalnya `/public/screenshots/homepage.png`)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+![Homepage](public/screenshots/homepage.png)
+![Peta Budaya](public/screenshots/map.png)
+```
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 👥 Tim Pengembang
+- **Nama:** Zilhan Salman  
+- **Peran:** Fullstack Developer / GIS Developer  
+- **Instansi:** Universitas / Lembaga terkait  
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📚 Referensi
+- Pemerintah Kabupaten Garut – *Data Pariwisata dan Kebudayaan*  
+- Badan Pusat Statistik (BPS) Garut – *Profil Daerah 2024*  
+- Dokumentasi Laravel: [https://laravel.com/docs](https://laravel.com/docs)  
+- Leaflet.js: [https://leafletjs.com](https://leafletjs.com)
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📄 Lisensi
+Proyek ini dilisensikan di bawah lisensi **MIT**.  
+Anda bebas menggunakan, menyalin, atau memodifikasi proyek ini dengan tetap mencantumkan atribusi kepada pengembang asli.
