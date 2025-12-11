@@ -313,17 +313,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Checkbox toggle
     hasMapCheckbox.addEventListener('change', function() {
         mapEnabled = this.checked;
-        
+
         if (mapEnabled) {
             // Enable map
             mapDisabledMsg.classList.add('d-none');
         } else {
             // Disable map - clear coordinates
             if (latHidden) latHidden.value = '';
-            if (latHidden) latHidden.value = '';
             if (lngHidden) lngHidden.value = '';
             if (latDisplay) latDisplay.value = '';
             if (lngDisplay) lngDisplay.value = '';
+            if (marker) {
                 map.removeLayer(marker);
                 marker = null;
             }
@@ -331,7 +331,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Note: Plus Code UI removed. Map click and manual coordinate inputs populate latitude and longitude.
+    // Note: Map click and manual coordinate inputs populate latitude and longitude.
+    if (latDisplay) {
         latDisplay.addEventListener('change', function() {
             const lat = this.value.trim();
             if (lat) {
