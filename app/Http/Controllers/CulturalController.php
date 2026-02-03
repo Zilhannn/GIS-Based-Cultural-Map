@@ -31,17 +31,34 @@ class CulturalController extends Controller
     {
         $query = Cultural::query();
 
+        // Alphabet filter
         if ($request->filled('starts_with')) {
             $query->where('name', 'LIKE', $request->starts_with . '%');
         }
 
+        // Category filter (treat the category column as a keyword source)
+        if ($request->filled('category')) {
+            $keyword = $request->category;
+            $query->where('category', 'LIKE', "%{$keyword}%");
+        }
+
+        // Sorting by name
         if ($request->has('sort')) {
             $query->orderBy('name', $request->sort === 'desc' ? 'desc' : 'asc');
         }
 
+        // Get distinct category keywords for the filter dropdown
+        $categories = Cultural::select('category')
+            ->whereNotNull('category')
+            ->distinct()
+            ->pluck('category')
+            ->filter()
+            ->sort()
+            ->values();
+
         $culturals = $query->paginate(9)->withQueryString();
 
-        return view('cultural.index', compact('culturals'));
+        return view('cultural.index', compact('culturals', 'categories'));
     }
 
     public function show(Cultural $cultural)
@@ -403,7 +420,7 @@ class CulturalController extends Controller
             $galleries = CulturalGallery::where('cultural_id', $cultural->id)->get();
             foreach ($galleries as $gallery) {
                 if ($gallery->image_path) Storage::disk('public')->delete($gallery->image_path);
-                $gallery->delete();
+                CulturalGallery::where('id', $gallery->id)->delete();
             }
 
             CulturalGeodata::where('cultural_id', $cultural->id)->delete();

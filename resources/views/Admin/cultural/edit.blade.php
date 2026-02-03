@@ -33,7 +33,14 @@
                     <!-- Kategori -->
                     <div class="mb-3">
                         <label for="category" class="form-label fw-semibold text-softblue">Kategori</label>
-                        <input type="text" name="category" id="category" value="{{ old('category', $cultural->category) }}" class="form-control bg-dark text-light border-softblue" required>
+                        <select name="category" id="category" class="form-select bg-dark text-light border-softblue" required>
+                            <option value="">Pilih Kategori</option>
+                            <option value="Bangunan Bersejarah" {{ old('category', $cultural->category) == 'Bangunan Bersejarah' ? 'selected' : '' }}>Bangunan Bersejarah</option>
+                            <option value="Wisata Budaya" {{ old('category', $cultural->category) == 'Wisata Budaya' ? 'selected' : '' }}>Wisata Budaya</option>
+                            <option value="Kesenian" {{ old('category', $cultural->category) == 'Kesenian' ? 'selected' : '' }}>Kesenian</option>
+                            <option value="Museum" {{ old('category', $cultural->category) == 'Museum' ? 'selected' : '' }}>Museum</option>
+                            <option value="Produk Seni dan Budaya" {{ old('category', $cultural->category) == 'Produk Seni dan Budaya' ? 'selected' : '' }}>Produk Seni dan Budaya</option>
+                        </select>
                     </div>
 
                     <!-- Deskripsi -->

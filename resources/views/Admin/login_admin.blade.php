@@ -42,6 +42,26 @@
     </div>
 
 </section>
+
+@if($errors->has('email'))
+    @php $loginError = $errors->first('email'); @endphp
+    <div class="modal fade show" id="loginErrorModal" tabindex="-1" aria-hidden="true" style="display:block;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content soft-modal text-light shadow-lg border-0 rounded-4 text-center py-4">
+                <i class="bi bi-exclamation-triangle text-danger fs-1 mb-3"></i>
+                <h5 class="fw-semibold mb-2">Login Gagal</h5>
+                <p class="text-muted small mb-0">{!! $loginError !!}</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        setTimeout(() => {
+            const modal = document.getElementById('loginErrorModal');
+            if(modal){ modal.remove(); }
+        }, 3000);
+    </script>
+@endif
+
 @if(session('success_logout'))
     @php $logoutNotif = session('success_logout'); @endphp
     <div class="modal fade show" id="logoutNotifModal" tabindex="-1" aria-hidden="true" style="display:block;">
